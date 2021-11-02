@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Jon's Gatsby Site",
+    title: "Jon Greazel",
   },
   plugins: [
     "gatsby-plugin-image",
@@ -13,6 +13,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-mdx",
+    "gatsby-plugin-antd",
     "gatsby-transformer-sharp",
   ],
 };

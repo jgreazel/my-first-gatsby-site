@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import { navBar, socialLinks, title } from "./layout.module.css";
+
+import { Button, Popover } from "antd";
 import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from "./layout.module.css";
+  MenuOutlined,
+  GithubOutlined,
+  LinkedinOutlined,
+} from "@ant-design/icons";
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -20,35 +20,33 @@ const Layout = ({ pageTitle, children }) => {
     }
   `);
 
+  const menu = (
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/blog">Blog</Link>
+      <Link to="/contact">Contact</Link>
+    </div>
+  );
+
   return (
-    <div className={container}>
+    <div>
       <title>
         {pageTitle} | {data.site.siteMetadata.title}
       </title>
-      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
-      <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link to="/" className={navLinkText}>
-              Home
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/about" className={navLinkText}>
-              About
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/blog" className={navLinkText}>
-              Blog
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <main>
-        <h1 className={heading}>{pageTitle}</h1>
-        {children}
-      </main>
+      <div className={navBar}>
+        <div className={socialLinks}>
+          <Button shape="circle" icon={<GithubOutlined />} ghost />
+          <Button shape="circle" icon={<LinkedinOutlined />} ghost />
+        </div>
+        <Link to="/" className={title}>
+          Jonathan Greazel
+        </Link>
+        <Popover content={menu} placement="bottom" trigger="click">
+          <Button icon={<MenuOutlined />} ghost />
+        </Popover>
+      </div>
+      <main>{children}</main>
     </div>
   );
 };
