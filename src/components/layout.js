@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import { navBar, socialLinks, title } from "./layout.module.css";
+import { navBar, socialLinks, title, content } from "./layout.module.css";
 
 import { Button, Popover } from "antd";
 import {
@@ -36,17 +36,17 @@ const Layout = ({ pageTitle, children }) => {
       </title>
       <div className={navBar}>
         <div className={socialLinks}>
-          <Button shape="circle" icon={<GithubOutlined />} ghost />
-          <Button shape="circle" icon={<LinkedinOutlined />} ghost />
+          <Button shape="circle" icon={<GithubOutlined />} />
+          <Button shape="circle" icon={<LinkedinOutlined />} />
         </div>
         <Link to="/" className={title}>
           Jonathan Greazel
         </Link>
         <Popover content={menu} placement="bottom" trigger="click">
-          <Button icon={<MenuOutlined />} ghost />
+          <Button icon={<MenuOutlined />} />
         </Popover>
       </div>
-      <main>{children}</main>
+      <main className={content}>{children}</main>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 .nav-bar {
-  /* the background will be a linear gradient from a light blue to a light green*/
-  background: linear-gradient(to right, #014d18, #013a12, #01260c);
+  /* background: linear-gradient(to right, #014d18, #013a12, #01260c); */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,5 +15,10 @@
 .title {
   font-size: 1.5rem;
   font-family: sans-serif;
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
+}
+
+.content {
+  width: 75%;
+  margin: 0 auto;
 }

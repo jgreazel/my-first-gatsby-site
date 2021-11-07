@@ -1,18 +1,22 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
 
+import { Card } from "antd";
+
 import Layout from "../../components/layout";
 
 const BlogPage = ({ data }) => {
   return (
     <Layout pageTitle="My Blog Posts">
       {data.allMdx.nodes.map((node) => (
-        <article key={node.id}>
-          <h2>
-            <Link to={`/blog/${node.slug}`}>{node.frontmatter.title}</Link>
-          </h2>
+        <Card
+          key={node.id}
+          title={node.frontmatter.title}
+          style={{ width: "50%", margin: "20px auto" }}
+          extra={<Link to={`/blog/${node.slug}`}>Read Post</Link>}
+        >
           <p>Posted: {node.frontmatter.date}</p>
-        </article>
+        </Card>
       ))}
     </Layout>
   );
