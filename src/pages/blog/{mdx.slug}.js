@@ -26,7 +26,7 @@ const BlogPost = ({ data }) => {
           <p>{data.mdx.frontmatter.date}</p>
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </Col>
-        <Col sm={0} lg={8}>
+        <Col sm={0} lg={8} style={{ padding: 15 }}>
           <h3>Other Posts</h3>
           <ul>
             {data.allMdx.nodes.map((node) => (
